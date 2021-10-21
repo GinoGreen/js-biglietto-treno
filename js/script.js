@@ -32,14 +32,40 @@ if (age < 18) {
       `;
    } else {
       toSubtract = (priceTotal / 100) * discount20;
+      document.getElementById('double-discount').innerHTML = 
+      `
+         Hai inserito un codice sconto non valido
+      `;
    }
+
+} else if (age <= 20) {
    
-} else if (age <= 20 && codeDiscount === 'SCONTO20') {
-   toSubtract = ((priceTotal / 100) * discount20) ;
-   document.getElementById('double-discount').innerHTML = 
+   if (codeDiscount === 'SCONTO20') {
+      toSubtract = ((priceTotal / 100) * discount20) ;
+      document.getElementById('double-discount').innerHTML = 
       `
          Il tuo codice sconto é stato applicato correttamente, hai ricevuto uno sconto del 20 %
       `;
+   } else {
+      document.getElementById('double-discount').innerHTML = 
+      `
+         Hai inserito un codice sconto non valido
+      `;
+   }
+
+} else if (age > 20) {
+   
+   if (codeDiscount === 'SCONTO20') {
+      document.getElementById('double-discount').innerHTML = 
+      `
+         Il codice sconto da te inserito non é applicabile per la tua fascia di etá
+      `;
+   } else {
+      document.getElementById('double-discount').innerHTML = 
+      `
+         Hai inserito un codice sconto non valido
+      `;
+   }
 } else if (age >= 65) {
    ageMinMaj = 'maggiorenne over 65';
    toSubtract = Math.round((priceTotal / 100) * discount40);
