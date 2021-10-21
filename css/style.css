@@ -1,9 +1,12 @@
-h2 {
-   padding: 20px 0;
-   text-align: center;
+.container-fluid {
    animation-name: bg-pulse;
    animation-iteration-count: infinite;
    animation-duration: 4s;
+}
+
+h2 {
+   padding: 20px 0;
+   text-align: center;
 }
 
 @keyframes bg-pulse {
