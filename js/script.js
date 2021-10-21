@@ -13,13 +13,18 @@ let priceTotal = pricePerKm * kiloMeters;
 let toSubtract = 0;
 const discount20 = 20;
 const discount40 = 40;
+let ageMinMaj = 'maggiorenne under 65';
 
 //Inizio esercizio
 if (age < 18) {
+   ageMinMaj = 'minorenne';
    toSubtract = (priceTotal / 100) * discount20;
 } else if (age >= 65) {
+   ageMinMaj = 'maggiorenne over 65';
    toSubtract = Math.round((priceTotal / 100) * discount40);
 }
+
+document.getElementById('majority').innerHTML = ageMinMaj;
 
 const priceFinal = (priceTotal - toSubtract).toFixed(2);
 
