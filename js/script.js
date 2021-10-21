@@ -7,14 +7,23 @@ L’output del prezzo finale va messo fuori in forma umana (con massimo due deci
 
 //Dichiarazione variabili
 const kiloMeters = 24;
-const age = 17;
-const priceTotal = 0.21 * kiloMeters;
+const age = 19;
+const pricePerKm = 0.21;
+let priceTotal = pricePerKm * kiloMeters;
+let toSubtract = 0;
 const discount20 = 20;
 const discount40 = 40;
 
 //Inizio esercizio
-document.getElementById('price-total').innerHTML = priceTotal;
+if (age < 18) {
+   toSubtract = (priceTotal / 100) * discount20;
+} else if (age >= 65) {
+   toSubtract = (priceTotal / 100) * discount40;
+}
+
+document.getElementById('price-total').innerHTML = priceTotal - toSubtract;
 
 console.log('kilometri', kiloMeters);
 console.log('etá', age);
+console.log('Sconto da sottrarre al prezzo totale', toSubtract);
 console.log('Prezzo totale', priceTotal);
